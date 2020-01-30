@@ -14,6 +14,9 @@ class OrganisatorsController extends Controller
     public function index()
     {
         //
+         $organisators = Organisator::all();
+
+        return view('organisators.index',  compact('organisators'));
     }
 
     /**
@@ -24,6 +27,7 @@ class OrganisatorsController extends Controller
     public function create()
     {
         //
+         return view('organisators.create');
     }
 
     /**
@@ -35,6 +39,12 @@ class OrganisatorsController extends Controller
     public function store(Request $request)
     {
         //
+        \App\Organisator::create([
+          'Name' => $request->get('name'),
+          
+        ]);
+
+        return redirect('/organisators')->with('success', 'List of organisators has been added');
     }
 
     /**
@@ -57,6 +67,9 @@ class OrganisatorsController extends Controller
     public function edit($id)
     {
         //
+         organisators = Organisator::find($id);
+
+        return view('organisators.edit', compact('organisators'));
     }
 
     /**
@@ -69,6 +82,17 @@ class OrganisatorsController extends Controller
     public function update(Request $request, $id)
     {
         //
+          $request->validate([
+        'Name'=>'required',        
+      ]);
+
+      $organisators = Organisator::find($id);
+      $organisators->organisators = $request->get('organisators');
+     
+
+      $organisators->save();
+
+      return redirect('/organisators')->with('success', 'List of organisators has been updated');
     }
 
     /**
@@ -80,5 +104,9 @@ class OrganisatorsController extends Controller
     public function destroy($id)
     {
         //
+         $organisators = Organisator::find($id);
+     $organisators->delete();
+
+     return redirect('/organisators')->with('success', 'Organisator has been deleted Successfully');
     }
 }
