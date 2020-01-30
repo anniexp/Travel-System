@@ -14,6 +14,9 @@ class TypeOfTransportsController extends Controller
     public function index()
     {
         //
+         $types = TypeOfTransport::all();
+
+        return view('types.index',  compact('types'));
        
     }
 
@@ -25,6 +28,7 @@ class TypeOfTransportsController extends Controller
     public function create()
     {
         //
+        return view('types.create');
     }
 
     /**
@@ -36,6 +40,12 @@ class TypeOfTransportsController extends Controller
     public function store(Request $request)
     {
         //
+          \App\TypeOfTransport::create([
+          'Type' => $request->get('typeOfTransport'),
+          
+        ]);
+
+        return redirect('/types')->with('success', 'Type of transport has been added');
     }
 
     /**
@@ -58,6 +68,9 @@ class TypeOfTransportsController extends Controller
     public function edit($id)
     {
         //
+          types = TypeOfTransport::find($id);
+
+        return view('types.edit', compact('types'));
     }
 
     /**
@@ -70,6 +83,17 @@ class TypeOfTransportsController extends Controller
     public function update(Request $request, $id)
     {
         //
+          $request->validate([
+        'Type'=>'required',        
+      ]);
+
+      $types = TypeOfTransport::find($id);
+      $types->type = $request->get('type');
+     
+
+      $types->save();
+
+      return redirect('/types')->with('success', 'Type of transport has been updated');
     }
 
     /**
@@ -81,5 +105,9 @@ class TypeOfTransportsController extends Controller
     public function destroy($id)
     {
         //
+         $types = TypeOfTransport::find($id);
+     $types->delete();
+
+     return redirect('/types')->with('success', 'Type of transport has been deleted Successfully');
     }
 }
