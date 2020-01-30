@@ -25,3 +25,6 @@ Route::get('/home', 'HomeController@index')
 Route::get('/admin', 'AdminController@admin')    
     ->middleware('is_admin')    
     ->name('admin');
+Route::resource('/organisators', 'OrganisatorsController');
+Route::resource('/types', 'TypeOfTransportsController');
+Route::resource('/holidays', 'HolidaysController');
