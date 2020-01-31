@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Holiday;
 use Illuminate\Http\Request;
 
 class HolidaysController extends Controller
@@ -41,7 +41,7 @@ class HolidaysController extends Controller
         //
          \App\Holiday::create([
          'name' => $request->get('name'),
-         'dates' => $request->get('dates'),
+         'date' => $request->get('date'),
          'duration' => $request->get('duration'),       
           'typeOfTransport_id' => $request->get('typeOfTransport_id'),
           'organisator_id' => $request->get('organisator_id'),
@@ -71,9 +71,9 @@ class HolidaysController extends Controller
     public function edit($id)
     {
         //
-        $holidays = Holiday::find($id);
+        $holiday = Holiday::find($id);
 
-        return view('holidays.edit', compact('holidays'));
+        return view('holidays.edit', compact('holiday'));
     }
 
     /**
@@ -86,15 +86,15 @@ class HolidaysController extends Controller
     public function update(Request $request, $id)
     {
         //
-         $holidays = Holiday::find($id);
+         $holiday = Holiday::find($id);
      /* $order->PaymentMethod = $request->get('PaymentMethod');
       $order->OrderTotal = $request->get('OrderTotal');
       */
-       $holidays ->name = $request->get('name');
-          $holidays ->dates = $request->get('dates');
-          $holidays ->duration = $request->get('duration'); 
+       $holiday ->name = $request->get('name');
+          $holiday ->date = $request->get('date');
+          $holiday ->duration = $request->get('duration'); 
 
-      $holidays->save();
+      $holiday->save();
 
       return redirect('/holidays')->with('success', 'Holiday has been updated');
     }
@@ -108,8 +108,8 @@ class HolidaysController extends Controller
     public function destroy($id)
     {
         //
-        $holidays = Holiday::find($id);
-     $holidays->delete();
+        $holiday = Holiday::find($id);
+     $holiday->delete();
 
      return redirect('/holidays')->with('success', 'Holiday has been deleted Successfully');
     }

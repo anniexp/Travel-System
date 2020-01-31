@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TypeOfTransport;
 
 class TypeOfTransportsController extends Controller
 {
@@ -14,9 +15,9 @@ class TypeOfTransportsController extends Controller
     public function index()
     {
         //
-         $types = TypeOfTransport::all();
+         $typeoftransports = TypeOfTransport::all();
 
-        return view('types.index',  compact('types'));
+        return view('types.index',  compact('typeoftransports'));
        
     }
 
@@ -41,7 +42,7 @@ class TypeOfTransportsController extends Controller
     {
         //
           \App\TypeOfTransport::create([
-          'Type' => $request->get('typeOfTransport'),
+          'typeoftransport' => $request->get('typeoftransport'),
           
         ]);
 
@@ -68,9 +69,9 @@ class TypeOfTransportsController extends Controller
     public function edit($id)
     {
         //
-          types = TypeOfTransport::find($id);
+          $typeoftransport = TypeOfTransport::find($id);
 
-        return view('types.edit', compact('types'));
+        return view('types.edit', compact('typeoftransport'));
     }
 
     /**
@@ -84,14 +85,14 @@ class TypeOfTransportsController extends Controller
     {
         //
           $request->validate([
-        'Type'=>'required',        
+        'typeoftransport'=>'required',        
       ]);
 
-      $types = TypeOfTransport::find($id);
-      $types->type = $request->get('type');
+      $typeoftransport = TypeOfTransport::find($id);
+      $typeoftransport->typeoftransport = $request->get('typeoftransport');
      
 
-      $types->save();
+      $typeoftransport->save();
 
       return redirect('/types')->with('success', 'Type of transport has been updated');
     }
@@ -105,8 +106,8 @@ class TypeOfTransportsController extends Controller
     public function destroy($id)
     {
         //
-         $types = TypeOfTransport::find($id);
-     $types->delete();
+         $type = TypeOfTransport::find($id);
+     $type->delete();
 
      return redirect('/types')->with('success', 'Type of transport has been deleted Successfully');
     }

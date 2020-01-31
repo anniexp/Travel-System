@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Organisator;
 class OrganisatorsController extends Controller
 {
     /**
@@ -40,7 +40,7 @@ class OrganisatorsController extends Controller
     {
         //
         \App\Organisator::create([
-          'Name' => $request->get('name'),
+          'name' => $request->get('name'),
           
         ]);
 
@@ -67,9 +67,9 @@ class OrganisatorsController extends Controller
     public function edit($id)
     {
         //
-         organisators = Organisator::find($id);
+         $organisator = Organisator::find($id);
 
-        return view('organisators.edit', compact('organisators'));
+        return view('organisators.edit', compact('organisator'));
     }
 
     /**
@@ -79,18 +79,19 @@ class OrganisatorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //
           $request->validate([
-        'Name'=>'required',        
+        'name'=>'required',        
       ]);
 
-      $organisators = Organisator::find($id);
-      $organisators->organisators = $request->get('organisators');
+      $organisator = Organisator::find($id);
+      $organisator->name = $request->get('name');
      
 
-      $organisators->save();
+      $organisator->save();
 
       return redirect('/organisators')->with('success', 'List of organisators has been updated');
     }
@@ -104,8 +105,8 @@ class OrganisatorsController extends Controller
     public function destroy($id)
     {
         //
-         $organisators = Organisator::find($id);
-     $organisators->delete();
+         $organisator = Organisator::find($id);
+     $organisator->delete();
 
      return redirect('/organisators')->with('success', 'Organisator has been deleted Successfully');
     }

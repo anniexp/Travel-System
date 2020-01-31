@@ -6,8 +6,8 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Holidays
-                        <a href="{{ URL::to('holidays/create') }}" class="pull-right">Add Holiday</a>
+                       <center><h1>Types of transportstion</h1></center>
+                        <a href="{{ URL::to('types/create') }}" class="pull-right">Add an type</a>
                     </div>
 
                     <div class="panel-body">
@@ -20,28 +20,24 @@
                             <thead>
                             <tr>
                                 <td>ID</td>
-                                <td>Name</td>
-                                <td>Dates</td>
-                                <td>Duration</td>
-                                <td>Type Of Transport id</td>
-                                <td>Organisator id</td>
+                                <td>Type of transportation</td>
+                                
 
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($holidays as $key => $value)
+                            @foreach($typeoftransports as $key => $value)
                                 <tr>
                                     <td>{{ $value->id }}</td>
-                                    <td>{{ $value->name }}</td>
-                                    <td>{{ $value->dates }}</td>
-                                    <td>{{ $value->duration }}</td>
-                                    <td>{{ $value->typeOfTransport_id }}</td>
-                                    <td>{{ $value->organisator_id }}</td>
+                                    <td>{{ $value->typeoftransport }}</td>
+                                    
                                      <!--<td><img src="<?php echo asset('imagecache/small/' . $value->sampleName);?>" alt="image" /></td>-->
                                     <!-- we will also add show, edit, and delete buttons -->
                                     <td>
-
-                                        <form action="{{action('HolidaysController@destroy', $value->id )}}" method="post">
+                                    <a class="btn btn-small btn-info" href="{{ URL::to('types' . '/' . $value->id . '/edit') }}">Edit Type</a>
+                                    </td>
+                                    <td>
+                                        <form action="{{action('TypeOfTransportsController@destroy', $value->id )}}" method="post">
                                             {{csrf_field()}}
                                             <input name="_method" type="hidden" value="DELETE">
                                             <button class="btn btn-danger" type="submit">Delete</button>

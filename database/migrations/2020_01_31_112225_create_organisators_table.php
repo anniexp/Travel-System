@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypeoftransportsTable extends Migration
+class CreateOrganisatorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTypeoftransportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('typeoftransports', function (Blueprint $table) {
+        Schema::create('organisators', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('Type');
+            $table->String('name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateTypeoftransportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('typeoftransports');
+        Schema::dropIfExists('organisators');
     }
 }
