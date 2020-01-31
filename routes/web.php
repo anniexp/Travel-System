@@ -28,3 +28,5 @@ Route::get('/admin', 'AdminController@admin')
 Route::resource('/organisators', 'admin\OrganisatorsController');
 Route::resource('/types', 'admin\TypeOfTransportsController');
 Route::resource('/holidays', 'admin\HolidaysController');
+Route::resource('/holidayusers', 'user\UserHollidaysController');
+
