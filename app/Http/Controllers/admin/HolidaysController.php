@@ -1,22 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\admin;
+use App\Holiday;
 use Illuminate\Http\Request;
-use App\Organisator;
-class OrganisatorsController extends Controller
+use App\Http\Controllers\Controller;
+class HolidaysController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+      public function __construct()
+    {
+        $this->middleware('is_admin');
+    }
+
     public function index()
     {
         //
-         $organisators = Organisator::all();
+          $holidays = Holiday::all();
 
-        return view('organisators.index',  compact('organisators'));
+        return view('holidays.index',  compact('holidays'));
     }
 
     /**
@@ -27,7 +32,7 @@ class OrganisatorsController extends Controller
     public function create()
     {
         //
-         return view('organisators.create');
+        return view('holidays.create');
     }
 
     /**
@@ -39,12 +44,16 @@ class OrganisatorsController extends Controller
     public function store(Request $request)
     {
         //
-        \App\Organisator::create([
-          'name' => $request->get('name'),
+         \App\Holiday::create([
+         'name' => $request->get('name'),
+         'date' => $request->get('date'),
+         'duration' => $request->get('duration'),       
+          'typeOfTransport_id' => $request->get('typeOfTransport_id'),
+          'organisator_id' => $request->get('organisator_id'),
           
         ]);
 
-        return redirect('/organisators')->with('success', 'List of organisators has been added');
+        return redirect('/holidays')->with('success', 'Holiday has been added');
     }
 
     /**
@@ -67,9 +76,9 @@ class OrganisatorsController extends Controller
     public function edit($id)
     {
         //
-         $organisator = Organisator::find($id);
+        $holiday = Holiday::find($id);
 
-        return view('organisators.edit', compact('organisator'));
+        return view('holidays.edit', compact('holiday'));
     }
 
     /**
@@ -79,21 +88,20 @@ class OrganisatorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function update(Request $request, $id)
     {
         //
-          $request->validate([
-        'name'=>'required',        
-      ]);
+         $holiday = Holiday::find($id);
+     /* $order->PaymentMethod = $request->get('PaymentMethod');
+      $order->OrderTotal = $request->get('OrderTotal');
+      */
+       $holiday ->name = $request->get('name');
+          $holiday ->date = $request->get('date');
+          $holiday ->duration = $request->get('duration'); 
 
-      $organisator = Organisator::find($id);
-      $organisator->name = $request->get('name');
-     
+      $holiday->save();
 
-      $organisator->save();
-
-      return redirect('/organisators')->with('success', 'List of organisators has been updated');
+      return redirect('/holidays')->with('success', 'Holiday has been updated');
     }
 
     /**
@@ -105,9 +113,9 @@ class OrganisatorsController extends Controller
     public function destroy($id)
     {
         //
-         $organisator = Organisator::find($id);
-     $organisator->delete();
+        $holiday = Holiday::find($id);
+     $holiday->delete();
 
-     return redirect('/organisators')->with('success', 'Organisator has been deleted Successfully');
+     return redirect('/holidays')->with('success', 'Holiday has been deleted Successfully');
     }
 }

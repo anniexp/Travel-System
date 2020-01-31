@@ -1,24 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\TypeOfTransport;
-
-class TypeOfTransportsController extends Controller
+use App\Organisator;
+class OrganisatorsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+       public function __construct()
+    {
+        $this->middleware('is_admin');
+    }
+
     public function index()
     {
         //
-         $typeoftransports = TypeOfTransport::all();
+         $organisators = Organisator::all();
 
-        return view('types.index',  compact('typeoftransports'));
-       
+        return view('organisators.index',  compact('organisators'));
     }
 
     /**
@@ -29,7 +33,7 @@ class TypeOfTransportsController extends Controller
     public function create()
     {
         //
-        return view('types.create');
+         return view('organisators.create');
     }
 
     /**
@@ -41,12 +45,12 @@ class TypeOfTransportsController extends Controller
     public function store(Request $request)
     {
         //
-          \App\TypeOfTransport::create([
-          'typeoftransport' => $request->get('typeoftransport'),
+        \App\Organisator::create([
+          'name' => $request->get('name'),
           
         ]);
 
-        return redirect('/types')->with('success', 'Type of transport has been added');
+        return redirect('/organisators')->with('success', 'List of organisators has been added');
     }
 
     /**
@@ -69,9 +73,9 @@ class TypeOfTransportsController extends Controller
     public function edit($id)
     {
         //
-          $typeoftransport = TypeOfTransport::find($id);
+         $organisator = Organisator::find($id);
 
-        return view('types.edit', compact('typeoftransport'));
+        return view('organisators.edit', compact('organisator'));
     }
 
     /**
@@ -81,20 +85,21 @@ class TypeOfTransportsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
         //
           $request->validate([
-        'typeoftransport'=>'required',        
+        'name'=>'required',        
       ]);
 
-      $typeoftransport = TypeOfTransport::find($id);
-      $typeoftransport->typeoftransport = $request->get('typeoftransport');
+      $organisator = Organisator::find($id);
+      $organisator->name = $request->get('name');
      
 
-      $typeoftransport->save();
+      $organisator->save();
 
-      return redirect('/types')->with('success', 'Type of transport has been updated');
+      return redirect('/organisators')->with('success', 'List of organisators has been updated');
     }
 
     /**
@@ -106,9 +111,9 @@ class TypeOfTransportsController extends Controller
     public function destroy($id)
     {
         //
-         $type = TypeOfTransport::find($id);
-     $type->delete();
+         $organisator = Organisator::find($id);
+     $organisator->delete();
 
-     return redirect('/types')->with('success', 'Type of transport has been deleted Successfully');
+     return redirect('/organisators')->with('success', 'Organisator has been deleted Successfully');
     }
 }

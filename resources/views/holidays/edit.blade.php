@@ -17,7 +17,7 @@
                         @endif
                         -->
 
-                        <form method="post" action="{{action('HolidaysController@update', $holiday->id)}}">
+                        <form method="post" action="{{action('admin\HolidaysController@update', $holiday->id)}}">
                             <div class="form-group row">
                                 {{csrf_field()}}
                                 <input name="_method" type="hidden" value="PATCH">

@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Edit organisator
-                        <a href="{{ URL::to('organisators') }}" class="pull-right">List all</a>
+                        <a href="{{ URL::to('admin\organisators') }}" class="pull-right">List all</a>
                     </div>
 
                     <div class="panel-body">

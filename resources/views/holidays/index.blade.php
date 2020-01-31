@@ -34,17 +34,17 @@
                                 <tr>
                                     <td>{{ $value->id }}</td>
                                     <td>{{ $value->name }}</td>
-                                    <td>{{ $value->dates }}</td>
+                                    <td>{{ $value->date }}</td>
                                     <td>{{ $value->duration }}</td>
                                     <td>{{ $value->typeOfTransport_id }}</td>
                                     <td>{{ $value->organisator_id }}</td>
                                      <!--<td><img src="<?php echo asset('imagecache/small/' . $value->sampleName);?>" alt="image" /></td>-->
                                     <!-- we will also add show, edit, and delete buttons -->
                                     <td>
-                                    <a class="btn btn-small btn-info" href="{{ URL::to('holidays' . '/' . $value->id . '/edit') }}">Edit Holiday<</a>
+                                    <a class="btn btn-small btn-info" href="{{ URL::to('holidays' . '/' . $value->id . '/edit') }}">Edit Holiday</a>
                                     </td>
                                     <td>
-                                        <form action="{{action('HolidaysController@destroy', $value->id )}}" method="post">
+                                        <form action="{{action('admin\HolidaysController@destroy', $value->id )}}" method="post">
                                             {{csrf_field()}}
                                             <input name="_method" type="hidden" value="DELETE">
                                             <button class="btn btn-danger" type="submit">Delete</button>

@@ -37,7 +37,7 @@
                                     <a class="btn btn-small btn-info" href="{{ URL::to('organisators' . '/' . $value->id . '/edit') }}">Edit Organisator</a>
                                     </td>
                                     <td>
-                                        <form action="{{action('OrganisatorsController@destroy', $value->id )}}" method="post">
+                                        <form action="{{action('admin\OrganisatorsController@destroy', $value->id )}}" method="post">
                                             {{csrf_field()}}
                                             <input name="_method" type="hidden" value="DELETE">
                                             <button class="btn btn-danger" type="submit">Delete</button>

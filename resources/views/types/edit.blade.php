@@ -1,4 +1,4 @@
-@extends('layouts.app')
+\@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -17,7 +17,7 @@
                         @endif
                         -->
 
-                        <form method="post" action="{{action('TypeOfTransportsController@update', $typeoftransport->id)}}">
+                        <form method="post" action="{{action('admin\TypeOfTransportsController@update', $typeoftransport->id)}}">
                             <div class="form-group row">
                                 {{csrf_field()}}
                                 <input name="_method" type="hidden" value="PATCH">

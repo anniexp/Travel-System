@@ -1,22 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\Holiday;
-use Illuminate\Http\Request;
+namespace App\Http\Controllers\admin;
 
-class HolidaysController extends Controller
+use Illuminate\Http\Request;
+use App\TypeOfTransport;
+use App\Http\Controllers\Controller;
+
+class TypeOfTransportsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+       public function __construct()
+    {
+        $this->middleware('is_admin');
+    }
+
     public function index()
     {
         //
-          $holidays = Holiday::all();
+         $typeoftransports = TypeOfTransport::all();
 
-        return view('holidays.index',  compact('holidays'));
+        return view('types.index',  compact('typeoftransports'));
+       
     }
 
     /**
@@ -27,7 +35,7 @@ class HolidaysController extends Controller
     public function create()
     {
         //
-        return view('holidays.create');
+        return view('types.create');
     }
 
     /**
@@ -39,16 +47,12 @@ class HolidaysController extends Controller
     public function store(Request $request)
     {
         //
-         \App\Holiday::create([
-         'name' => $request->get('name'),
-         'date' => $request->get('date'),
-         'duration' => $request->get('duration'),       
-          'typeOfTransport_id' => $request->get('typeOfTransport_id'),
-          'organisator_id' => $request->get('organisator_id'),
+          \App\TypeOfTransport::create([
+          'typeoftransport' => $request->get('typeoftransport'),
           
         ]);
 
-        return redirect('/holidays')->with('success', 'Holiday has been added');
+        return redirect('/types')->with('success', 'Type of transport has been added');
     }
 
     /**
@@ -71,9 +75,9 @@ class HolidaysController extends Controller
     public function edit($id)
     {
         //
-        $holiday = Holiday::find($id);
+          $typeoftransport = TypeOfTransport::find($id);
 
-        return view('holidays.edit', compact('holiday'));
+        return view('types.edit', compact('typeoftransport'));
     }
 
     /**
@@ -86,17 +90,17 @@ class HolidaysController extends Controller
     public function update(Request $request, $id)
     {
         //
-         $holiday = Holiday::find($id);
-     /* $order->PaymentMethod = $request->get('PaymentMethod');
-      $order->OrderTotal = $request->get('OrderTotal');
-      */
-       $holiday ->name = $request->get('name');
-          $holiday ->date = $request->get('date');
-          $holiday ->duration = $request->get('duration'); 
+          $request->validate([
+        'typeoftransport'=>'required',        
+      ]);
 
-      $holiday->save();
+      $typeoftransport = TypeOfTransport::find($id);
+      $typeoftransport->typeoftransport = $request->get('typeoftransport');
+     
 
-      return redirect('/holidays')->with('success', 'Holiday has been updated');
+      $typeoftransport->save();
+
+      return redirect('/types')->with('success', 'Type of transport has been updated');
     }
 
     /**
@@ -108,9 +112,9 @@ class HolidaysController extends Controller
     public function destroy($id)
     {
         //
-        $holiday = Holiday::find($id);
-     $holiday->delete();
+         $type = TypeOfTransport::find($id);
+     $type->delete();
 
-     return redirect('/holidays')->with('success', 'Holiday has been deleted Successfully');
+     return redirect('/types')->with('success', 'Type of transport has been deleted Successfully');
     }
 }
