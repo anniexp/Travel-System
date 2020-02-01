@@ -48,6 +48,18 @@ class UserHollidaysController extends Controller
     public function show($id)
     {
         //
+       
+        
+        // $holidayhouse = HolidayHouse::find($id);
+       /*  $details = DB::table('holidays')
+            ->join('organsators', 'holidays.organisator_id', '=', 'organsators.id')
+            ->join('type_of_transports', 'holidays.typeOfTransport_id', '=', 'type_of_transports.id')
+            ->select('holidays.*', 'organisators.name', 'type_of_transports.typeoftransports')
+            ->get();
+         
+
+        return view('holidayusers.show',  compact('details'));
+    }*/
     }
 
     /**
