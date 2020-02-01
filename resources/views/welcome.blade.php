@@ -90,8 +90,8 @@
                     <div class="input-group">
                          <input type="text" class="form-control" name="q"
                               placeholder="Search holidays"> <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default">
-                      <span class="glyphicon glyphicon-search"></span>
+                        <button type="submit" class="btn btn-default"> Search
+                     
                         </button>
                       </span>
                       </br>
@@ -112,8 +112,8 @@
                                      <td>Name</td>
                                      <td>Dates</td>
                                      <td>Duration</td>
-                                     <td>Type Of Transport id</td>
-                                     <td>Organisator id</td>
+                                    <!-- <td>Type Of Transport id</td>
+                                     <td>Organisator id</td>-->
 
                                     </tr>
                                  </thead>
@@ -125,8 +125,8 @@
                                      <td>{{ $holiday->name }}</td>
                                      <td>{{ $holiday->date }}</td>
                                      <td>{{ $holiday->duration }}</td>
-                                     <td>{{ $holiday->typeOfTransport_id }}</td>
-                                     <td>{{ $holiday->organisator_id }}</td>
+                                  <!--   <td>{{ $holiday->typeOfTransport_id }}</td>
+                                     <td>{{ $holiday->organisator_id }}</td>-->
                                    </tr>
                               @endforeach 
                              </tbody>

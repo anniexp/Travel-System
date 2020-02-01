@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Edit organisator
-                        <a href="{{ URL::to('admin\organisators') }}" class="pull-right">List all</a>
+                        <a href="{{ URL::to('organisators') }}" class="pull-right">List all</a>
                     </div>
 
                     <div class="panel-body">
@@ -17,13 +17,13 @@
                         @endif
                         -->
 
-                        <form method="post" action="{{action('OrganisatorsController@update', $organisator->id)}}">
+                        <form method="post" action="{{action('admin\OrganisatorsController@update', $organisator->id)}}">
                             <div class="form-group row">
                                 {{csrf_field()}}
                                 <input name="_method" type="hidden" value="PATCH">
                                 <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Organisators</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="name" value={{ $organisator->organisatorName }} />
+                                    <input type="text" class="form-control" name="organisatorName" value={{ $organisator->organisatorName }} />
                                 </div>
                                 
                             </div>

@@ -24,6 +24,7 @@
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control form-control-lg" id="lgFormGroupInput" placeholder="imageDescription" name="imageDescription">
                                 </div>
+
                             </div>
                             <div class="form-group row">
                                 <label for="customImage" class="col-sm-2 col-form-label col-form-label-lg">Image</label>

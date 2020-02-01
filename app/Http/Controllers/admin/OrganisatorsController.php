@@ -94,7 +94,7 @@ class OrganisatorsController extends Controller
       ]);
 
       $organisator = Organisator::find($id);
-      $organisator->organisatorName = $request->get('name');
+      $organisator->organisatorName = $request->get('organisatorName');
      
 
       $organisator->save();

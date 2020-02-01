@@ -92,10 +92,7 @@ class HolidaysController extends Controller
     public function update(Request $request, $id)
     {
         //
-         $holiday = Holiday::find($id);
-     /* $order->PaymentMethod = $request->get('PaymentMethod');
-      $order->OrderTotal = $request->get('OrderTotal');
-      */
+         $holiday = Holiday::find($id);   
        $holiday ->name = $request->get('name');
           $holiday ->date = $request->get('date');
           $holiday ->duration = $request->get('duration'); 
