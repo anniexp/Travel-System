@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\user;
 use App\Holiday;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 class UserHollidaysController extends Controller
@@ -19,10 +20,15 @@ class UserHollidaysController extends Controller
     public function index()
     {
         //
-          $holidays = Holiday::all();
+        $holidays = Holiday::all();
+           $details = DB::table('holidays')
+            ->join('organisators', 'holidays.organisator_id', '=', 'organisators.id')
+            ->join('type_of_transports', 'holidays.typeOfTransport_id', '=', 'type_of_transports.id')
+            ->select('holidays.*', 'organisators.organisatorName', 'type_of_transports.typeoftransport')
+            ->get();
+         
 
-        return view('holidayusers.index',  compact('holidays'));
-    }
+        return view('holidayusers.index',  compact('details','holidays')); }
 
     /**
      * Show the form for creating a new resource.
@@ -51,16 +57,9 @@ class UserHollidaysController extends Controller
        
         
         // $holidayhouse = HolidayHouse::find($id);
-       /*  $details = DB::table('holidays')
-            ->join('organsators', 'holidays.organisator_id', '=', 'organsators.id')
-            ->join('type_of_transports', 'holidays.typeOfTransport_id', '=', 'type_of_transports.id')
-            ->select('holidays.*', 'organisators.name', 'type_of_transports.typeoftransports')
-            ->get();
-         
-
-        return view('holidayusers.show',  compact('details'));
-    }*/
+      
     }
+    
 
     /**
      * Show the form for editing the specified resource.

@@ -23,7 +23,7 @@
                                 <input name="_method" type="hidden" value="PATCH">
                                 <label for="lgFormGroupInput" class="col-sm-2 col-form-label col-form-label-lg">Organisators</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="name" value={{ $organisator->name }} />
+                                    <input type="text" class="form-control" name="name" value={{ $organisator->organisatorName }} />
                                 </div>
                                 
                             </div>

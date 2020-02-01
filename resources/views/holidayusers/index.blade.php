@@ -16,7 +16,7 @@
                         @if (\Session::has('success'))
                             <div class="alert alert-info">{{\Session::get('success') }}</div>
                         @endif
-
+                       
                         <table class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -24,33 +24,23 @@
                                 <td>Name</td>
                                 <td>Dates</td>
                                 <td>Duration</td>
-                                <td>Type Of Transport id</td>
-                                <td>Organisator id</td>
+                                <td>Type Of Transport</td>
+                                <td>Organisator</td>
 
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($holidays as $key => $value)
+                            @foreach($details as $detail)
+                            @foreach($holidays as $holiday)
                                 <tr>
-                                    <td>{{ $value->id }}</td>
-                                    <td>{{ $value->name }}</td>
-                                    <td>{{ $value->date }}</td>
-                                    <td>{{ $value->duration }}</td>
-                                    <td>{{ $value->typeOfTransport_id }}</td>
-                                    <td>{{ $value->organisator_id }}</td>
-                                     <!--<td><img src="<?php echo asset('imagecache/small/' . $value->sampleName);?>" alt="image" /></td>-->
-                                    <!-- we will also add show, edit, and delete buttons -->
-                                  <!--  <td>
-                                    </td>
-                                    <td>
-                                        <form action="{{action('admin\HolidaysController@destroy', $value->id )}}" method="post">
-                                            {{csrf_field()}}
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button class="btn btn-danger" type="submit">Delete</button>
-                                        </form>
-
-                                    </td> -->
+                                    <td>{{ $detail->id }}</td>
+                                    <td>{{ $detail->name }}</td>
+                                    <td>{{ $detail->date }}</td>
+                                    <td>{{ $detail->duration }}</td>
+                                    <td>{{ $detail->typeoftransport }}</td>
+                                    <td>{{ $detail->organisatorName}}</td>
                                 </tr>
+                                @endforeach
                             @endforeach
                             </tbody>
                         </table>

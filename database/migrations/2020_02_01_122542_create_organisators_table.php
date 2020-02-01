@@ -15,7 +15,7 @@ class CreateOrganisatorsTable extends Migration
     {
         Schema::create('organisators', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('name');
+            $table->String('organisatorName');
             $table->timestamps();
         });
     }

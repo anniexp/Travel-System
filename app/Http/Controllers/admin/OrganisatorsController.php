@@ -46,7 +46,7 @@ class OrganisatorsController extends Controller
     {
         //
         \App\Organisator::create([
-          'name' => $request->get('name'),
+          'organisatorName' => $request->get('organisatorName'),
           
         ]);
 
@@ -90,11 +90,11 @@ class OrganisatorsController extends Controller
     {
         //
           $request->validate([
-        'name'=>'required',        
+        'organisatorName'=>'required',        
       ]);
 
       $organisator = Organisator::find($id);
-      $organisator->name = $request->get('name');
+      $organisator->organisatorName = $request->get('name');
      
 
       $organisator->save();

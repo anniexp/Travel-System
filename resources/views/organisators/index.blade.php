@@ -29,7 +29,7 @@
                             @foreach($organisators as $key => $value)
                                 <tr>
                                     <td>{{ $value->id }}</td>
-                                    <td>{{ $value->name }}</td>
+                                    <td>{{ $value->organisatorName }}</td>
                                     
                                      <!--<td><img src="<?php echo asset('imagecache/small/' . $value->sampleName);?>" alt="image" /></td>-->
                                     <!-- we will also add show, edit, and delete buttons -->
