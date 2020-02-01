@@ -50,6 +50,7 @@ class HolidaysController extends Controller
          'duration' => $request->get('duration'),       
           'typeOfTransport_id' => $request->get('typeOfTransport_id'),
           'organisator_id' => $request->get('organisator_id'),
+          'image_id' => $request->get('image_id'),
           
         ]);
 

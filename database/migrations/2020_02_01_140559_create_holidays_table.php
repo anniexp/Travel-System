@@ -22,6 +22,9 @@ class CreateHolidaysTable extends Migration
             $table->foreign('organisator_id')->references('id')->on('Organisators');            
             $table->unsignedBigInteger('typeOfTransport_id');
             $table->foreign('typeOfTransport_id')->references('id')->on('type_of_transports');
+              
+            $table->unsignedBigInteger('image_id');
+            $table->foreign('image_id')->references('id')->on('images');
             $table->timestamps();
         });
     }
