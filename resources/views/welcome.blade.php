@@ -216,6 +216,7 @@
                      <a href="/holidays">Holidays</a>
                      <a href="/organisators">Organisators</a>
                      <a href="/types">Types Of Transport</a>
+                     <a href="/images">Images storage</a>
                 @endif
                 @endif
                      <a href="/holidayusers">Holidays</a>
@@ -229,7 +230,7 @@
             
                 <p><big>Posted by: Ani Pendasheva</big></p>
                 <p><big>Contact information:</big> github: anniexp
-                <br>  f number: 180 901 0657</p> 
+                <br>  f.№: 180 901 0657</p> 
             </div>
             
          </div>

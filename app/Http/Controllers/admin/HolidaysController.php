@@ -5,6 +5,7 @@ use App\Holiday;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\Holidays;
 
 class HolidaysController extends Controller
 {
@@ -55,7 +56,7 @@ class HolidaysController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Holidays $request)
     {
         //
          \App\Holiday::create([

@@ -6,7 +6,8 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Edit Type
+                        <center><h1> Edit type of transport</h1></center>
+                        </br>
                         <a href="{{ URL::to('types') }}" class="pull-right">List all</a>
                     </div>
 

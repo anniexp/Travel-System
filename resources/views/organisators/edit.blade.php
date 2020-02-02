@@ -6,7 +6,9 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Edit organisator
+                        
+                       <center><h1> Edit organisator</h1></center>
+
                         <a href="{{ URL::to('organisators') }}" class="pull-right">List all</a>
                     </div>
 

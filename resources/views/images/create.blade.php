@@ -6,8 +6,10 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Add Image
-                        <a href="{{ URL::to('images') }}" class="pull-right">List all</a>
+                    <center><h1> Add an Image</h1></center>
+                       </br>
+                       <a class="btn btn-small btn-info" href="{{ URL::to('images') }}">List all</a>
+                       
                     </div>
 
                     <div class="panel-body">

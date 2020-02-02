@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Organisator;
+use App\Http\Requests\Organisators;
 class OrganisatorsController extends Controller
 {
     /**
@@ -42,7 +43,7 @@ class OrganisatorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Organisators $request)
     {
         //
         \App\Organisator::create([
@@ -50,7 +51,7 @@ class OrganisatorsController extends Controller
           
         ]);
 
-        return redirect('/organisators')->with('success', 'List of organisators has been added');
+        return redirect('/organisators')->with('success', ' Organisator has been added!');
     }
 
     /**

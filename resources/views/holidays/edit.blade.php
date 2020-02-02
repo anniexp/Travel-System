@@ -6,8 +6,11 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Edit Holiday
-                        <a href="{{ URL::to('holidays') }}" class="pull-right">List all</a>
+                        
+                         <center><h1>Edit a Holiday</h1></center>
+                       </br>
+                       <a class="btn btn-small btn-info" href="{{ URL::to('holidays') }}">List all</a>
+                     
                     </div>
 
                     <div class="panel-body">

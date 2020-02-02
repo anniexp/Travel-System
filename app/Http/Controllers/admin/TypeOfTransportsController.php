@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\TypeOfTransport;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TypeOfTransports;
 
 class TypeOfTransportsController extends Controller
 {
@@ -44,7 +45,7 @@ class TypeOfTransportsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TypeOfTransports $request)
     {
         //
           \App\TypeOfTransport::create([
