@@ -126,7 +126,7 @@
                      text-align: center;
                      border-radius: 30px 30px 30px 30px;
                      margin-left:200px;
-}
+
             }
         </style>
 
@@ -156,7 +156,7 @@
                 <form action="/search" method="POST" role="search">
                    {{ csrf_field() }}
                     <div class="input-group">
-                         <input type="text" class="form-control" name="q"
+                         <input type="text" class="form-control" name="q" 
                               placeholder="Search holidays"> <span class="input-group-btn">
                         <button type="submit" class="btn btn-default"> Search
                      
