@@ -31,7 +31,7 @@
                             </thead>
                             <tbody>
                             @foreach($details as $detail)
-                            @foreach($holidays as $holiday)
+                          
                                 <tr>
                                     <td>{{ $detail->id }}</td>
                                     <td>{{ $detail->name }}</td>
@@ -41,7 +41,7 @@
                                     <td>{{ $detail->organisatorName}}</td>
                                 </tr>
                                 @endforeach
-                            @endforeach
+                           
                             </tbody>
                         </table>
                     </div>

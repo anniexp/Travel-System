@@ -8,6 +8,7 @@
                     <div class="panel-heading">
                         
                           <center><h1>Holidays</h1></center>
+                          <a class="btn btn-small btn-info" href="{{ URL::to('holidays/create') }}">Add Holiday</a>
                         <a href="{{ URL::to('holidays/create') }}" class="pull-right">Add Holiday</a>
                     </div>
 

@@ -52,9 +52,9 @@
             }
 
             .title {
-                font-size: 94px;
+                font-size: 120px;
                 width: 1500px;
-                height: 100px;
+                height: 150px;
                 text-align:center;
 
                 font-style:italic;
@@ -99,7 +99,7 @@
                 }
 
                 .table{width:100%;margin-bottom:1rem;background-color:transparent}
-                .table-striped tbody tr:nth-of-type(odd){background-color:rgba(0,0,0,.05)}
+                .table-striped tbody tr:nth-of-type(odd){background-color:rgba(255, 170, 0,.6)}
 
             .form-group
             {
@@ -109,7 +109,7 @@
             .button
                 {
                 font-size: 25px;
-                background-color:white;
+                background-color:#FFDC73;
                 margin-top:5px;
                 margin-left:20px;
                 border-radius: 15px;
@@ -136,7 +136,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">user</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -215,7 +215,7 @@
                 @if(auth()->user()->isAdmin())
                      <a href="/holidays">Holidays</a>
                      <a href="/organisators">Organisators</a>
-                     <a href="/types">TypeOfTransports</a>
+                     <a href="/types">Types Of Transport</a>
                 @endif
                 @endif
                      <a href="/holidayusers">Holidays</a>
