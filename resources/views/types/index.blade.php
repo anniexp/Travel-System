@@ -7,7 +7,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                        <center><h1>Types of transportstion</h1></center>
-                        <a href="{{ URL::to('types/create') }}" class="pull-right">Add an type</a>
+                       </br>
+                        <a class="btn btn-small btn-info" href="{{ URL::to('types/create') }}">Add a type</a>
+
+                       
                     </div>
 
                     <div class="panel-body">

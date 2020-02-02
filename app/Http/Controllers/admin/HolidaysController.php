@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 use App\Holiday;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+
 class HolidaysController extends Controller
 {
     /**
@@ -16,6 +18,18 @@ class HolidaysController extends Controller
         $this->middleware('is_admin');
     }
 
+    /*protected function validator(Request $request)
+    {
+        return Validator::make($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'date' => ['required', 'string',  'max:255'],
+            'duration' => ['required', 'string'],
+            'typeOfTransport_id' => ['required', 'integer'],
+          'organisator_id' => ['required', 'integer'],
+          'image_id' => ['required', 'integer'],
+                       
+        ]);
+    }*/
     public function index()
     {
         //

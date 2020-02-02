@@ -6,8 +6,10 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        List of organisators
-                        <a href="{{ URL::to('organisators/create') }}" class="pull-right">Add an organisator</a>
+                       <center><h3> List of organisators</h3></center>
+                       </br>
+                        
+                         <a class="btn btn-small btn-info" href="{{ URL::to('organisators/create') }}">Add an organisator</a>
                     </div>
 
                     <div class="panel-body">
