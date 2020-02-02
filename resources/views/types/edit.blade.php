@@ -8,7 +8,9 @@
                     <div class="panel-heading">
                         <center><h1> Edit type of transport</h1></center>
                         </br>
-                        <a href="{{ URL::to('types') }}" class="pull-right">List all</a>
+
+                             <a class="btn btn-small btn-info" href="{{ URL::to('types') }}">List all</a>
+                             
                     </div>
 
                     <div class="panel-body">
@@ -17,6 +19,7 @@
                             <div class="alert alert-info">{{ Session::get('message') }}</div>
                         @endif
                         -->
+
 
                         <form method="post" action="{{action('admin\TypeOfTransportsController@update', $typeoftransport->id)}}">
                             <div class="form-group row">
