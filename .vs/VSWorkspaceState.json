@@ -1,7 +1,18 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\app",
+    "\\app\\Http\\Requests",
+    "\\public",
+    "\\public\\css",
+    "\\public\\js",
+    "\\resources",
+    "\\resources\\js\\components",
+    "\\resources\\views",
+    "\\resources\\views\\holidays",
+    "\\resources\\views\\layouts",
+    "\\storage"
   ],
-  "SelectedNode": "\\.env.example",
+  "SelectedNode": "\\public\\js\\app.js",
   "PreviewInSolutionExplorer": false
 }

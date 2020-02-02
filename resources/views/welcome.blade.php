@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -8,17 +9,22 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"> 
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: #ffcc66;
                 color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-family: 'Open Sans', sans-serif; 
+                font-weight: bold;
                 height: 100vh;
                 margin: 0;
+                 border-radius: 15px;
             }
+           
 
             .full-height {
                 height: 100vh;
@@ -42,26 +48,88 @@
 
             .content {
                 text-align: center;
+
             }
 
             .title {
-                font-size: 84px;
+                font-size: 94px;
+                width: 1500px;
+                height: 100px;
+                text-align:center;
+
+                font-style:italic;
+                font-family:'Curlz MT';
+                background-color:#FFDC73;
+                border-radius: 15px;
+
+
             }
 
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 30px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                 background-color:#f7e6ff;
+                 border-radius: 25px;
+
             }
 
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 50px;
+            }
+            .container{
+            padding-right:15px;
+            padding-left:15px;                      
+            color:#636b6f;
+            padding: 0 25px;
+               width: 1000px;
+                height: auto;
+                opacity: 0.8;
+                text-align:center;
+                font-size:20px;
+                font-style:normal;
+                background-color:#ffff80;
+                 border-radius: 25px;
+                 margin-top:20px;
+                margin-left:200px;
+                }
+
+                .table{width:100%;margin-bottom:1rem;background-color:transparent}
+                .table-striped tbody tr:nth-of-type(odd){background-color:rgba(0,0,0,.05)}
+
+            .form-group
+            {
+            margin-bottom:1rem
+
+            }
+            .button
+                {
+                font-size: 25px;
+                background-color:white;
+                margin-top:5px;
+                margin-left:20px;
+                border-radius: 15px;
+                }
+                .footer {
+  
+                    
+                    bottom: 0;
+                    height:130px;
+                    width: 1500px;
+                    background-color:#FFDC73 ; 
+                     font-size:1em;
+                    color:darkorange;
+                     text-align: center;
+                     border-radius: 30px 30px 30px 30px;
+                     margin-left:200px;
+}
             }
         </style>
+
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -84,7 +152,7 @@
                     Holidays
                     </br>
                 </div>
-                <div>
+              
                 <form action="/search" method="POST" role="search">
                    {{ csrf_field() }}
                     <div class="input-group">
@@ -99,12 +167,14 @@
                     </div>
                 </form>
 
-                </div>
+                <!--</div>-->
 
                 <div class="container">
                     @if(isset($details))
-                           <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-                            <h2>Sample User details</h2>
+                    
+                           <p>Search results for <b> {{ $query }} </b> are :</p>
+                            
+                            
                                 <table class="table table-striped table-bordered">
                                  <thead>
                                    <tr>
@@ -130,13 +200,16 @@
                                    </tr>
                               @endforeach 
                              </tbody>
-                        </table>
+                           </table>
+                         
+
+                        </br>
                 @elseif(isset($message))
 		         	<p>{{ $message }}</p>
 
                  @endif
                 </div>
-
+                  
                <div class="links">
                 @if (auth()->check())
                 @if(auth()->user()->isAdmin())
@@ -148,6 +221,20 @@
                      <a href="/holidayusers">Holidays</a>
                 </div>
             </div>
-        </div>
+             </div>
+               
+             
+            <div class="footer">
+
+            
+                <p><big>Posted by: Ani Pendasheva</big></p>
+                <p><big>Contact information:</big> github: anniexp
+                <br>  f number: 180 901 0657</p> 
+            </div>
+            
+         </div>
+       
+       </div>
     </body>
+    
 </html>
